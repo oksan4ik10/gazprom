@@ -1,0 +1,25 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.react-player video {
+  width: auto;
+  height: auto;
+}
+
+.video {
+  height: 200px;
+}
+
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+.react-player video {
+
+  height: auto !important;
+}
