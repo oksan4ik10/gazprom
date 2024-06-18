@@ -1,0 +1,17 @@
+.video {
+    width: 202px;
+    height: auto;
+    position: relative;
+}
+
+.reactPlayer video {
+    width: auto;
+    height: auto !important;
+}
+
+
+.reactPlayer {
+    border-radius: 50%;
+    overflow: hidden;
+    border: 1px solid red;
+}

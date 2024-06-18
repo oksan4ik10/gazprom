@@ -1,0 +1,13 @@
+.volume {
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    transform: translateX(-50%) translateY(0%);
+    z-index: 99;
+}
+
+.volume__icon {
+    width: 30px;
+    height: 30px;
+    background: yellow;
+}
