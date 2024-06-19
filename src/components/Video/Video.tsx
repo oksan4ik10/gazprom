@@ -5,14 +5,13 @@ import urlVideo from "../../assets/test.mp4"
 
 import PlayIcon from "../PlayIcon/PlayIcon";
 import PauseIcon from "../PauseIcon/PauseIcon";
-import Volume from "../Volume/Volume";
 import Progress from "../Progress/Progress";
 
 import style from "./Video.module.css"
 
 function Video() {
     const [pause, setPause] = useState(false);
-    const [volume, setVolume] = useState(1);
+
     const clickPause = () => {
         setPause(true);
     }
@@ -25,16 +24,10 @@ function Video() {
     const endVideo = () => {
         setPlaying(false);
         setPause(false)
-        setVolume(0)
         setSecondProgress(0)
     }
 
 
-
-    const clickVolume = () => {
-        setVolume(1)
-        if (!playing) setPlaying(true);
-    }
 
 
     const widthProgress = 200;
@@ -59,12 +52,11 @@ function Video() {
 
     return (
         <div className={style.video} >
-            {volume === 0 && <Volume clickVolume={clickVolume}></Volume>}
+
             {pause && <PauseIcon></PauseIcon>}
             <Progress cProgress={cProgress} radiusProgress={radiusProgress} secondProgress={secondProgress} strokeWidthProgress={strokeWidthProgress} widthProgress={widthProgress}></Progress>
             <div onClick={clickPlayer}>
                 <ReactPlayer
-
                     onEnded={endVideo}
                     onPause={clickPause}
                     onProgress={progressVideo}
@@ -75,7 +67,6 @@ function Video() {
                     width="200px"
                     height="200px"
                     className={style.reactPlayer}
-                    volume={volume}
                     progressInterval={100}
                 />
             </div>
