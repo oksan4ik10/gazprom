@@ -1,0 +1,9 @@
+@import url("./assets/fonts/stylesheet.css");
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Cera", "Arial", sans-serif;
+    font-weight: normal;
+}

@@ -1,0 +1,24 @@
+@font-face {
+    font-family: 'Cera';
+    src: url('Cera-Regular.eot');
+    src: local('Cera Regular'), local('Cera-Regular'),
+        url('Cera-Regular.eot?#iefix') format('embedded-opentype'),
+        url('Cera-Regular.woff2') format('woff2'),
+        url('Cera-Regular.woff') format('woff'),
+        url('Cera-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+@font-face {
+    font-family: 'Cera';
+    src: url('Cera-Bold.eot');
+    src: local('Cera Bold'), local('Cera-Bold'),
+        url('Cera-Bold.eot?#iefix') format('embedded-opentype'),
+        url('Cera-Bold.woff2') format('woff2'),
+        url('Cera-Bold.woff') format('woff'),
+        url('Cera-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}

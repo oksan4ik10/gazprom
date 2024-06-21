@@ -1,6 +1,39 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.container {
+    max-width: 990px;
+    margin: auto;
+}
+
+.header {
+    background: #D1E5FF;
+    flex: 0 0 auto;
+}
+
+.header__title {
+    color: rgb(35, 85, 215);
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 60px;
+}
+
+.container__header {
+    padding: 54px 0px;
+}
+
+.main {
+    flex: 2 0 auto;
+    background: linear-gradient(180.00deg, rgb(35, 85, 215), rgb(68, 120, 255) 100%);
+    position: relative;
+    padding-top: 20px;
+}
+
+h2 {
+    position: absolute;
+    top: 30px;
+    left: 300px;
 }

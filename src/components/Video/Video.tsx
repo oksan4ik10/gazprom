@@ -14,6 +14,8 @@ function Video() {
 
     const clickPause = () => {
         setPause(true);
+        console.log("pause");
+
     }
     const [playing, setPlaying] = useState(false)
     const clickPlayer = () => {
@@ -22,6 +24,8 @@ function Video() {
         if (pause) setPause(false)
     }
     const endVideo = () => {
+        console.log("end");
+
         setPlaying(false);
         setPause(false)
         setSecondProgress(0)
@@ -44,6 +48,9 @@ function Video() {
         if (!playing) return
         const second = state.playedSeconds / state.loadedSeconds;
         const s = cProgress * second;
+        console.log(s);
+        console.log(cProgress);
+
         setSecondProgress(s)
     }
 
