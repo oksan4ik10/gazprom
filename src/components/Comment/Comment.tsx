@@ -8,6 +8,7 @@ function Comment() {
             <div className={style.rect}></div>
             <div className={style.rect}></div>
             <div className={style.rect}></div>
+            <div className={style.rect}></div>
             <p className={style.text}>Lorem ipsum, dolor sit amet consectetur<br />adipisicing elit. Quibusdam, itaque.</p>
 
         </div>
