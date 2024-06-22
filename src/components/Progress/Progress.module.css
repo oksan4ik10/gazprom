@@ -14,3 +14,7 @@
 .progress circle {
     transition: .1s;
 }
+
+.progress.stop circle {
+    transition: 0s;
+}

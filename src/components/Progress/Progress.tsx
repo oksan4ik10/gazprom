@@ -12,14 +12,14 @@ function Progress(props: IProps) {
     const { secondProgress, cProgress, radiusProgress, widthProgress, strokeWidthProgress } = props;
 
     return (
-        <svg className={style.progress} viewBox={`0 0 ${widthProgress} ${widthProgress}`} version="1.1" xmlns="http://www.w3.org/2000/svg">
+        <svg className={style.progress + " " + (secondProgress === 0 ? style.stop : "")} viewBox={`0 0 ${widthProgress} ${widthProgress}`} version="1.1" xmlns="http://www.w3.org/2000/svg">
 
             <circle
                 cx={widthProgress / 2}
                 cy={widthProgress / 2}
                 r={radiusProgress}
                 strokeWidth={strokeWidthProgress}
-                stroke="red"
+                stroke="#2355D7"
                 fill="transparent"
                 strokeDasharray={`${secondProgress} ${cProgress} `}
             />
