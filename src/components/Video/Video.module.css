@@ -3,12 +3,15 @@
     width: 348px;
     height: 348px;
     transition: .3s;
+    margin-bottom: 30px;
 
 }
 
 .playVideo {
     width: 519px;
     height: 519px;
+    margin-top: 30px;
+    margin-bottom: 60px;
 }
 
 .video {

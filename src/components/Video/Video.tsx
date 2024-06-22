@@ -1,28 +1,31 @@
 import { useRef, useState } from "react";
 import ReactPlayer from 'react-player'
 
-import urlVideo from "../../assets/test.mp4"
+
 
 import Progress from "../Progress/Progress";
 
 import style from "./Video.module.css"
 
-function Video() {
+interface IProps {
+    url: string;
+    play: boolean;
+    idVideo: number;
+    changePlay: (id: number) => void
+    startVideo: boolean
+}
 
-    const [playing, setPlaying] = useState(false)
+function Video(props: IProps) {
+    const { url, play, idVideo, changePlay, startVideo } = props;
     const clickPlayer = () => {
-        setStartVideo(true)
-        if (!playing) setPlaying(true)
-        if (playing) setPlaying(false)
+        if (!startVideo) changePlay(idVideo)
+
     }
     const endVideo = () => {
-        setPlaying(false);
         setSecondProgress(cProgress);
         setTimeout(() => {
-            setStartVideo(false)
             setSecondProgress(0)
-
-
+            changePlay(idVideo)
         }, 100)
         setTimeout(() => { if (player.current) player.current.seekTo(0); }, 400)
 
@@ -42,18 +45,17 @@ function Video() {
         loaded: number
         loadedSeconds: number
     }) => {
-        if (!playing) return
+        if (!play) return
         const second = state.playedSeconds / state.loadedSeconds;
         const s = cProgress * second;
         setSecondProgress(s)
     }
 
-    const [startVideo, setStartVideo] = useState(false);
     const player = useRef<ReactPlayer>(null);
 
 
     return (
-        <div className={style.videoWrapper + " " + (startVideo ? style.playVideo : "")} >
+        <div className={style.videoWrapper + " " + ((startVideo && play) ? style.playVideo : "")} >
             <div className={style.wrapper} onClick={clickPlayer}>
                 <div className={style.rect}></div>
                 <div className={style.rect}></div>
@@ -73,9 +75,9 @@ function Video() {
                         onEnded={endVideo}
 
                         onProgress={progressVideo}
-                        playing={playing}
+                        playing={play}
                         // light="https://img.freepik.com/free-photo/a-colorful-picture-of-flowers-with-a-yellow-flower-on-the-bottom_1340-32004.jpg?size=338&ext=jpg&ga=GA1.1.1788614524.1718323200&semt=ais_user"
-                        url={urlVideo}
+                        url={url}
 
 
                         className={style.reactPlayer}

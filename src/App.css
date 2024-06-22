@@ -37,3 +37,18 @@ h2 {
     top: 30px;
     left: 300px;
 }
+
+.main__container {
+    margin-top: 60px;
+}
+
+.main__task {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 30px;
+}
+
+.task__video {
+    align-self: end;
+}

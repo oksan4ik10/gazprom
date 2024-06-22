@@ -1,6 +1,11 @@
 import style from "./Comment.module.css"
 
-function Comment() {
+interface IProps {
+    text: string
+}
+
+function Comment(props: IProps) {
+    const { text } = props;
     return (
         <div className={style.wrapper}>
             <div className={style.rect}></div>
@@ -9,7 +14,7 @@ function Comment() {
             <div className={style.rect}></div>
             <div className={style.rect}></div>
             <div className={style.rect}></div>
-            <p className={style.text}>Lorem ipsum, dolor sit amet consectetur<br />adipisicing elit. Quibusdam, itaque.</p>
+            <p className={style.text}>{text}</p>
 
         </div>
     );
