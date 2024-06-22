@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import ReactPlayer from 'react-player'
 
 import urlVideo from "../../assets/test.mp4"
@@ -11,19 +11,28 @@ function Video() {
 
     const [playing, setPlaying] = useState(false)
     const clickPlayer = () => {
+        setStartVideo(true)
         if (!playing) setPlaying(true)
         if (playing) setPlaying(false)
     }
     const endVideo = () => {
         setPlaying(false);
-        setSecondProgress(0)
+        setSecondProgress(cProgress);
+        setTimeout(() => {
+            setStartVideo(false)
+            setSecondProgress(0)
+
+
+        }, 100)
+        setTimeout(() => { if (player.current) player.current.seekTo(0); }, 400)
+
     }
 
 
 
 
     const widthProgress = 200;
-    const strokeWidthProgress = 4;
+    const strokeWidthProgress = 3;
     const radiusProgress = (widthProgress / 2) - (strokeWidthProgress / 2)
     const cProgress = 2 * 3.14 * radiusProgress
     const [secondProgress, setSecondProgress] = useState(0);
@@ -39,12 +48,13 @@ function Video() {
         setSecondProgress(s)
     }
 
-
+    const [startVideo, setStartVideo] = useState(false);
+    const player = useRef<ReactPlayer>(null);
 
 
     return (
-        <div className={style.videoWrapper} onClick={clickPlayer}>
-            <div className={style.wrapper}>
+        <div className={style.videoWrapper + " " + (startVideo ? style.playVideo : "")} >
+            <div className={style.wrapper} onClick={clickPlayer}>
                 <div className={style.rect}></div>
                 <div className={style.rect}></div>
                 <div className={style.rect}></div>
@@ -59,6 +69,7 @@ function Video() {
                 <Progress cProgress={cProgress} radiusProgress={radiusProgress} secondProgress={secondProgress} strokeWidthProgress={strokeWidthProgress} widthProgress={widthProgress}></Progress>
                 <div className={style.wrapperPlayer}>
                     <ReactPlayer
+                        ref={player}
                         onEnded={endVideo}
 
                         onProgress={progressVideo}

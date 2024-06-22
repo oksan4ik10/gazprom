@@ -19,7 +19,7 @@ function Progress(props: IProps) {
                 cy={widthProgress / 2}
                 r={radiusProgress}
                 strokeWidth={strokeWidthProgress}
-                stroke="#2355D7"
+                stroke="white"
                 fill="transparent"
                 strokeDasharray={`${secondProgress} ${cProgress} `}
             />
