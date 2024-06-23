@@ -8,25 +8,25 @@ export const App = () => {
   const [videoInfo, setVideo] = useState([
     {
       idVideo: 0,
-      text: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veniam, quis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse at totam ea, porro ipsa corporis numquam. Quidem fugiat fuga, repudiandae laudantium, perferendis neque quam voluptates culpa reprehenderit quae corrupti doloremque!",
+      text: "Lorem ipsum dolor sit,",
       url: urlVideo,
       play: false,
       startVideo: false
     },
     {
       idVideo: 1,
-      text: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veniam, quis.",
+      text: "Lorem ipsum dolor sit,",
       url: urlVideo,
       play: false,
       startVideo: false
     }
   ])
 
-  const changePlay = (idVideo: number) => {
+  const changePlay = (idVideo: number, startState: boolean) => {
     setVideo(videoInfo.map((item) => {
       if (item.idVideo === idVideo) {
         item.play = !item.play;
-        item.startVideo = true;
+        item.startVideo = startState;
       }
       else {
         item.play = false;
@@ -46,6 +46,7 @@ export const App = () => {
     </header>
     <main className="main">
       <div className="container main__container">
+        <div className="elem1"></div>
         {videoInfo.map((item) =>
           <div className="main__task" key={item.idVideo}>
             <Comment text={item.text}></Comment>

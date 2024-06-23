@@ -9,21 +9,21 @@ interface IProps {
     url: string;
     play: boolean;
     idVideo: number;
-    changePlay: (id: number) => void
+    changePlay: (id: number, startState: boolean) => void
     startVideo: boolean
 }
 
 function Video(props: IProps) {
     const { url, play, idVideo, changePlay, startVideo } = props;
     const clickPlayer = () => {
-        if (!startVideo) changePlay(idVideo)
+        changePlay(idVideo, true)
 
     }
     const endVideo = () => {
         setSecondProgress(cProgress);
         setTimeout(() => {
             setSecondProgress(0)
-            changePlay(idVideo)
+            changePlay(idVideo, false)
         }, 100)
         setTimeout(() => { if (player.current) player.current.seekTo(0); }, 400)
 
@@ -33,7 +33,7 @@ function Video(props: IProps) {
 
 
     const widthProgress = 200;
-    const strokeWidthProgress = 3;
+    const strokeWidthProgress = 2;
     const radiusProgress = (widthProgress / 2) - (strokeWidthProgress / 2)
     const cProgress = 2 * 3.14 * radiusProgress
     const [secondProgress, setSecondProgress] = useState(0);
@@ -60,7 +60,7 @@ function Video(props: IProps) {
             <div className={style.video} >
 
                 {/* {pause && <PauseIcon></PauseIcon>} */}
-                <Progress cProgress={cProgress} radiusProgress={radiusProgress} secondProgress={secondProgress} strokeWidthProgress={strokeWidthProgress} widthProgress={widthProgress}></Progress>
+                {startVideo && <Progress cProgress={cProgress} radiusProgress={radiusProgress} secondProgress={secondProgress} strokeWidthProgress={strokeWidthProgress} widthProgress={widthProgress}></Progress>}
                 <div className={style.wrapperPlayer}>
                     <ReactPlayer
                         ref={player}

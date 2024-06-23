@@ -40,6 +40,7 @@ h2 {
 
 .main__container {
     margin-top: 60px;
+    position: relative;
 }
 
 .main__task {
@@ -51,4 +52,28 @@ h2 {
 
 .task__video {
     align-self: end;
+}
+
+.elem1 {
+    position: absolute;
+    top: 7.7vw;
+    right: 0px;
+    background-image: url("./assets/img/bg-3.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top center;
+    width: 116px;
+    height: 125px;
+    animation: elem 1s alternate both infinite ease-in-out;
+
+}
+
+@keyframes elem {
+    0% {
+        transform: rotate(-17deg);
+    }
+
+    100% {
+        transform: rotate(17deg);
+    }
 }
