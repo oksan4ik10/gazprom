@@ -53,7 +53,7 @@ function Video(props: IProps) {
 
 
     return (
-        <div className={style.videoWrapper + " " + ((startVideo && play) ? style.playVideo : "")} >
+        <div className={style.videoWrapper + " " + ((startVideo) ? style.playVideo : "")} >
             <div className={style.wrapper} onClick={clickPlayer}>
 
             </div>
