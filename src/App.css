@@ -9,6 +9,8 @@
     margin: auto;
 }
 
+
+
 .header {
     background: #D1E5FF;
     flex: 0 0 auto;
@@ -29,14 +31,8 @@
     flex: 2 0 auto;
     background: linear-gradient(180.00deg, rgb(35, 85, 215), rgb(68, 120, 255) 100%);
     position: relative;
-    padding-top: 20px;
 }
 
-h2 {
-    position: absolute;
-    top: 30px;
-    left: 300px;
-}
 
 .main__container {
     margin-top: 60px;
@@ -54,9 +50,10 @@ h2 {
     align-self: end;
 }
 
-.elem1 {
+.elem1,
+.elem2,
+.elem3 {
     position: absolute;
-    top: 7.7vw;
     right: 0px;
     background-image: url("./assets/img/bg-3.png");
     background-repeat: no-repeat;
@@ -65,15 +62,78 @@ h2 {
     width: 116px;
     height: 125px;
     animation: elem 1s alternate both infinite ease-in-out;
+}
 
+.elem3 {
+    width: 129px;
+    height: 129px;
+    background-image: url("./assets/img/bg-2.png");
+    animation-duration: 1.2s;
+    animation-direction: alternate-reverse;
 }
 
 @keyframes elem {
     0% {
-        transform: rotate(-17deg);
+        transform: rotate(-20deg);
     }
 
     100% {
-        transform: rotate(17deg);
+        transform: rotate(20deg);
+    }
+}
+
+@media (min-width: 1080px) {
+    .container {
+        margin: 0;
+        max-width: 100%;
+    }
+
+    .main,
+    .header {
+        padding-left: min(90px, calc(45px + (90 - 45) * ((100vw - 1080px) / (2160 - 1080))));
+        padding-right: min(90px, calc(45px + (90 - 45) * ((100vw - 1080px) / (2160 - 1080))));
+    }
+
+    .header__title {
+        font-size: min(96px, calc(48px + (96 - 48) * ((100vw - 1080px) / (2160 - 1080))));
+        line-height: min(121px, calc(60px + (121 - 60) * ((100vw - 1080px) / (2160 - 1080))));
+    }
+
+    .container__header {
+        padding-top: min(106px, calc(54px + (106 - 54) * ((100vw - 1080px) / (2160 - 1080))));
+        padding-bottom: min(106px, calc(54px + (106 - 54) * ((100vw - 1080px) / (2160 - 1080))));
+    }
+
+    .main__container {
+        margin-top: calc(60px + (120 - 60) * ((100vw - 1080px) / (2160 - 1080)));
+    }
+
+    .elem1,
+    .elem2 {
+        top: min(295px, calc(137px + (295 - 137) * ((100vw - 1080px) / (2160 - 1080))));
+        width: min(227px, calc(116px + (227 - 116) * ((100vw - 1080px) / (2160 - 1080))));
+        height: min(250px, calc(125px + (250 - 125) * ((100vw - 1080px) / (2160 - 1080))));
+        right: min(90px, calc(45px + (90 - 45) * ((100vw - 1080px) / (2160 - 1080))));
+    }
+
+    .elem2 {
+        top: min(2305px, calc(1155px + (2305 - 1155) * ((100vw - 1080px) / (2160 - 1080))));
+
+        width: min(227px, calc(116px + (227 - 116) * ((100vw - 1080px) / (2160 - 1080))));
+        height: min(250px, calc(125px + (250 - 125) * ((100vw - 1080px) / (2160 - 1080))));
+        right: min(817px, calc(630px + (817 - 630) * ((100vw - 1080px) / (2160 - 1080))));
+        animation-delay: .5s;
+    }
+
+    .elem3 {
+        top: min(963px, calc(483px + (963 - 483) * ((100vw - 1080px) / (2160 - 1080))));
+        ;
+        width: min(273px, calc(129px + (273 - 129) * ((100vw - 1080px) / (2160 - 1080))));
+        height: min(273px, calc(129px + (273 - 129) * ((100vw - 1080px) / (2160 - 1080))));
+        left: min(240px, calc(123px + (240 - 123) * ((100vw - 1080px) / (2160 - 1080))));
+    }
+
+    .main__task {
+        gap: min(60px, calc(30px + (60 - 30) * ((100vw - 1080px) / (2160 - 1080))));
     }
 }

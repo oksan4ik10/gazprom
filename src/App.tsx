@@ -8,14 +8,14 @@ export const App = () => {
   const [videoInfo, setVideo] = useState([
     {
       idVideo: 0,
-      text: "Lorem ipsum dolor sit,",
+      text: "На какой позиции ты сейчас находишься?",
       url: urlVideo,
       play: false,
       startVideo: false
     },
     {
       idVideo: 1,
-      text: "Lorem ipsum dolor sit,",
+      text: "На твой взгляд, есть ли какие‑нибудь особенности, которые отличают работу аналитика данных от всех остальных профессий?",
       url: urlVideo,
       play: false,
       startVideo: false
@@ -45,8 +45,11 @@ export const App = () => {
 
     </header>
     <main className="main">
+      <div className="elem1"></div>
+      <div className="elem2"></div>
+      <div className="elem3"></div>
       <div className="container main__container">
-        <div className="elem1"></div>
+
         {videoInfo.map((item) =>
           <div className="main__task" key={item.idVideo}>
             <Comment text={item.text}></Comment>

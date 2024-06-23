@@ -26,6 +26,18 @@
     z-index: 10;
 }
 
+
+@media (min-width: 1080px) {
+    .text {
+        font-size: min(64px, calc(32px + (64 - 32) * ((100vw - 1080px) / (2160 - 1080))));
+        line-height: min(80px, calc(40px + (80 - 40) * ((100vw - 1080px) / (2160 - 1080))));
+    }
+
+    .wrapper {
+        padding: min(50px, calc(25px + (50 - 25) * ((100vw - 1080px) / (2160 - 1080))));
+    }
+}
+
 .rect {
     position: absolute;
     top: 0;
