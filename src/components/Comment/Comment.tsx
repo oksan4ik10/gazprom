@@ -7,16 +7,20 @@ interface IProps {
 function Comment(props: IProps) {
     const { text } = props;
     return (
-        <div className={style.wrapper}>
-            <div className={style.rect}></div>
-            <div className={style.rect}></div>
-            <div className={style.rect}></div>
-            <div className={style.rect}></div>
-            <div className={style.rect}></div>
-            <div className={style.rect}></div>
-            <p className={style.text}>{text}</p>
+        <>
+            <div className={style.wrapper}>
 
-        </div>
+                <div className={style.rect}></div>
+                <div className={style.rect}></div>
+                <div className={style.rect}></div>
+                <div className={style.rect}></div>
+                <div className={style.rect}></div>
+                <div className={style.rect}></div>
+                <p className={style.text}>{text}</p>
+
+            </div>
+        </>
+
     );
 }
 

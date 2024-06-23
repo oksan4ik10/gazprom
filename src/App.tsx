@@ -8,7 +8,7 @@ export const App = () => {
   const [videoInfo, setVideo] = useState([
     {
       idVideo: 0,
-      text: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veniam, quis.",
+      text: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veniam, quis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse at totam ea, porro ipsa corporis numquam. Quidem fugiat fuga, repudiandae laudantium, perferendis neque quam voluptates culpa reprehenderit quae corrupti doloremque!",
       url: urlVideo,
       play: false,
       startVideo: false

@@ -1,8 +1,6 @@
 import { useRef, useState } from "react";
 import ReactPlayer from 'react-player'
 
-
-
 import Progress from "../Progress/Progress";
 
 import style from "./Video.module.css"
@@ -57,12 +55,6 @@ function Video(props: IProps) {
     return (
         <div className={style.videoWrapper + " " + ((startVideo && play) ? style.playVideo : "")} >
             <div className={style.wrapper} onClick={clickPlayer}>
-                <div className={style.rect}></div>
-                <div className={style.rect}></div>
-                <div className={style.rect}></div>
-                <div className={style.rect}></div>
-                <div className={style.rect}></div>
-                <div className={style.rect}></div>
 
             </div>
             <div className={style.video} >
