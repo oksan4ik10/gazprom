@@ -1,7 +1,5 @@
 .wrapper {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
+    display: grid;
 }
 
 .container {
@@ -12,8 +10,11 @@
 
 
 .header {
+    position: sticky;
+    top: 0;
     background: #D1E5FF;
     flex: 0 0 auto;
+    z-index: 99;
 }
 
 .header__title {
@@ -53,7 +54,7 @@
 .elem1,
 .elem2,
 .elem3 {
-    position: absolute;
+    position: fixed;
     right: 0px;
     background-image: url("./assets/img/bg-3.png");
     background-repeat: no-repeat;
@@ -110,23 +111,20 @@
 
     .elem1,
     .elem2 {
-        top: min(295px, calc(137px + (295 - 137) * ((100vw - 1080px) / (2160 - 1080))));
+        top: calc(306px + (584 - 306) * ((100vw - 1080px) / (2160 - 1080)));
         width: min(227px, calc(116px + (227 - 116) * ((100vw - 1080px) / (2160 - 1080))));
         height: min(250px, calc(125px + (250 - 125) * ((100vw - 1080px) / (2160 - 1080))));
         right: min(90px, calc(45px + (90 - 45) * ((100vw - 1080px) / (2160 - 1080))));
     }
 
     .elem2 {
-        top: min(2305px, calc(1155px + (2305 - 1155) * ((100vw - 1080px) / (2160 - 1080))));
-
-        width: min(227px, calc(116px + (227 - 116) * ((100vw - 1080px) / (2160 - 1080))));
-        height: min(250px, calc(125px + (250 - 125) * ((100vw - 1080px) / (2160 - 1080))));
+        top: min(2637px, calc(1322px + (2637 - 1322) * ((100vw - 1080px) / (2160 - 1080))));
         right: min(817px, calc(630px + (817 - 630) * ((100vw - 1080px) / (2160 - 1080))));
         animation-delay: .5s;
     }
 
     .elem3 {
-        top: min(963px, calc(483px + (963 - 483) * ((100vw - 1080px) / (2160 - 1080))));
+        top: min(1297px, calc(650px + (1297 - 650) * ((100vw - 1080px) / (2160 - 1080))));
         ;
         width: min(273px, calc(129px + (273 - 129) * ((100vw - 1080px) / (2160 - 1080))));
         height: min(273px, calc(129px + (273 - 129) * ((100vw - 1080px) / (2160 - 1080))));

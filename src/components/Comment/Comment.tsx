@@ -16,7 +16,7 @@ function Comment(props: IProps) {
                 <div className={style.rect}></div>
                 <div className={style.rect}></div>
                 <div className={style.rect}></div>
-                <p className={style.text}>{text}</p>
+                <p className={style.text} dangerouslySetInnerHTML={{ __html: text }}></p>
 
             </div>
         </>

@@ -15,8 +15,26 @@ interface IProps {
 
 function Video(props: IProps) {
     const { url, play, idVideo, changePlay, startVideo } = props;
+
+    const ref = useRef<HTMLDivElement>(null);
+    const scrollToElement = () => {
+        const { current } = ref
+        if (current !== null) {
+            const { top, height } = current.getBoundingClientRect();
+            const heightWindow = window.innerHeight;
+
+            if ((top + height) > heightWindow) window.scrollTo(
+                {
+                    top: window.scrollY + height + 100,
+                    behavior: "smooth",
+                }
+            )
+        }
+    }
+
     const clickPlayer = () => {
         changePlay(idVideo, true)
+        if (!startVideo) scrollToElement();
 
     }
     const endVideo = () => {
@@ -53,7 +71,7 @@ function Video(props: IProps) {
 
 
     return (
-        <div className={style.videoWrapper + " " + ((startVideo) ? style.playVideo : "")} >
+        <div className={style.videoWrapper + " " + ((startVideo) ? style.playVideo : "")} ref={ref}>
             <div className={style.wrapper} onClick={clickPlayer}>
 
             </div>
