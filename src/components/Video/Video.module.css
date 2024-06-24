@@ -134,6 +134,32 @@
     opacity: .5;
 }
 
+.lazyLoad {
+    border-radius: 50%;
+    background-color: #D1E5FF;
+    position: absolute;
+}
+
+.lazyOpacity {
+    animation: lazy 1s ease-in 1;
+    opacity: 0;
+}
+
+@keyframes lazy {
+    0% {
+        opacity: 1;
+    }
+
+    60% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+
+}
+
 @media (min-width: 1080px) {
     .videoWrapper {
         width: min(696px, calc(348px + (696 - 348) * ((100vw - 1080px) / (2160 - 1080))));

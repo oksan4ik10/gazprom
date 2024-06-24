@@ -1,5 +1,6 @@
 import { useRef, useState } from "react";
 import ReactPlayer from 'react-player'
+import { useInView } from "react-intersection-observer";
 
 import Progress from "../Progress/Progress";
 
@@ -10,11 +11,12 @@ interface IProps {
     play: boolean;
     idVideo: number;
     changePlay: (id: number, startState: boolean) => void
-    startVideo: boolean
+    startVideo: boolean;
+    heightHeader: number;
 }
 
 function Video(props: IProps) {
-    const { url, play, idVideo, changePlay, startVideo } = props;
+    const { url, play, idVideo, changePlay, startVideo, heightHeader } = props;
 
     const ref = useRef<HTMLDivElement>(null);
     const scrollToElement = () => {
@@ -23,12 +25,22 @@ function Video(props: IProps) {
             const { top, height } = current.getBoundingClientRect();
             const heightWindow = window.innerHeight;
 
-            if ((top + height) > heightWindow) window.scrollTo(
+            if ((top + (height * 1.49)) > heightWindow) window.scrollTo(
                 {
-                    top: window.scrollY + height + 100,
+                    top: window.scrollY + (height * 1.49),
                     behavior: "smooth",
                 }
             )
+
+            if (top < heightHeader) {
+                window.scrollTo(
+                    {
+                        top: top > 0 ? window.scrollY - ((heightHeader - top) * 1.49) : window.scrollY - ((height + top) * 1.49),
+                        behavior: "smooth",
+                    }
+                )
+
+            }
         }
     }
 
@@ -69,17 +81,24 @@ function Video(props: IProps) {
 
     const player = useRef<ReactPlayer>(null);
 
+    const { ref: refVideo, inView } = useInView({
+        threshold: .1,
+        triggerOnce: true
+    })
+
+
 
     return (
         <div className={style.videoWrapper + " " + ((startVideo) ? style.playVideo : "")} ref={ref}>
-            <div className={style.wrapper} onClick={clickPlayer}>
+            <div className={style.wrapper} onClick={clickPlayer} ref={refVideo}>
 
             </div>
             <div className={style.video} >
 
                 {/* {pause && <PauseIcon></PauseIcon>} */}
                 {startVideo && <Progress cProgress={cProgress} radiusProgress={radiusProgress} secondProgress={secondProgress} strokeWidthProgress={strokeWidthProgress} widthProgress={widthProgress}></Progress>}
-                <div className={style.wrapperPlayer}>
+                <div className={style.lazyLoad + " " + style.wrapperPlayer + " " + (inView ? style.lazyOpacity : "")}></div>
+                {inView ? <div className={style.wrapperPlayer}>
                     <ReactPlayer
                         ref={player}
                         onEnded={endVideo}
@@ -93,7 +112,7 @@ function Video(props: IProps) {
                         className={style.reactPlayer}
                         progressInterval={100}
                     />
-                </div>
+                </div> : <div className={style.lazyLoad + " " + style.wrapperPlayer}></div>}
 
             </div>
         </div>

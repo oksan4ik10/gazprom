@@ -1,7 +1,7 @@
 import Video from "./components/Video/Video"
 import Comment from "./components/Comment/Comment"
 import "./App.css"
-import { useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import urlVideo from "./assets/test.mp4"
 export const App = () => {
 
@@ -146,9 +146,17 @@ export const App = () => {
     }))
   }
 
+  const refHeader = useRef<HTMLDivElement>(null);
+  const [heightHeader, setHeightHeader] = useState(0);
+  useEffect(() => {
+    const { current } = refHeader;
+    if (current) {
+      setHeightHeader(current.getBoundingClientRect().height)
+    }
+  }, [])
 
   return <div className="wrapper">
-    <header className="header">
+    <header className="header" ref={refHeader}>
       <div className="container container__header">
         <h1 className="header__title">ЧТО ГОВОРЯТ СТАЖЁРЫ?</h1>
       </div>
@@ -164,7 +172,7 @@ export const App = () => {
           <div className="main__task" key={item.idVideo}>
             <Comment text={item.text}></Comment>
             <div className="task__video">
-              <Video startVideo={item.startVideo} changePlay={changePlay} play={item.play} idVideo={item.idVideo} url={item.url}></Video>
+              <Video heightHeader={heightHeader} startVideo={item.startVideo} changePlay={changePlay} play={item.play} idVideo={item.idVideo} url={item.url}></Video>
             </div>
 
           </div>
