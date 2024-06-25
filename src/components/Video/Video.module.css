@@ -22,14 +22,18 @@
 }
 
 .reactPlayer video {
-    width: 100% !important;
-    height: auto !important;
+    width: auto !important;
+    height: 100% !important;
+    margin-left: 70px;
 }
 
 
 .reactPlayer {
     border-radius: 50%;
     overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100% !important;
     height: 100% !important;
 }
@@ -160,6 +164,7 @@
 
 }
 
+
 @media (min-width: 1080px) {
     .videoWrapper {
         width: min(696px, calc(348px + (696 - 348) * ((100vw - 1080px) / (2160 - 1080))));
@@ -167,6 +172,8 @@
         margin-bottom: min(60px, calc(30px + (60 - 30) * ((100vw - 1080px) / (2160 - 1080))));
 
     }
+
+
 
     .playVideo {
         width: min(1038px, calc(519px + (1038 - 519) * ((100vw - 1080px) / (2160 - 1080))));

@@ -15,6 +15,7 @@ interface IProps {
     heightHeader: number;
 }
 
+
 function Video(props: IProps) {
     const { url, play, idVideo, changePlay, startVideo, heightHeader } = props;
 
@@ -22,8 +23,10 @@ function Video(props: IProps) {
     const scrollToElement = () => {
         const { current } = ref
         if (current !== null) {
+
             const { top, height } = current.getBoundingClientRect();
             const heightWindow = window.innerHeight;
+
 
             if ((top + (height * 1.49)) > heightWindow) window.scrollTo(
                 {
@@ -46,7 +49,12 @@ function Video(props: IProps) {
 
     const clickPlayer = () => {
         changePlay(idVideo, true)
-        if (!startVideo) scrollToElement();
+        if (!startVideo && idVideo === 10) {
+            setTimeout(() => scrollToElement(), 200)
+            return
+        }
+
+        if (!startVideo) scrollToElement()
 
     }
     const endVideo = () => {
@@ -55,10 +63,9 @@ function Video(props: IProps) {
             setSecondProgress(0)
             changePlay(idVideo, false)
         }, 100)
-        setTimeout(() => { if (player.current) player.current.seekTo(0); }, 400)
+        setTimeout(() => { if (player.current) player.current.seekTo(0.01); }, 400)
 
     }
-
 
 
 
@@ -73,7 +80,10 @@ function Video(props: IProps) {
         loaded: number
         loadedSeconds: number
     }) => {
-        if (!play) return
+        if (!play) {
+            if (player.current) player.current.seekTo(0.01);
+            return
+        }
         const second = state.playedSeconds / state.loadedSeconds;
         const s = cProgress * second;
         setSecondProgress(s)
@@ -89,7 +99,7 @@ function Video(props: IProps) {
 
 
     return (
-        <div className={style.videoWrapper + " " + ((startVideo) ? style.playVideo : "")} ref={ref}>
+        <div className={style.videoWrapper + " " + ((startVideo) ? style.playVideo : "") + " "} ref={ref}>
             <div className={style.wrapper} onClick={clickPlayer} ref={refVideo}>
 
             </div>
@@ -105,6 +115,8 @@ function Video(props: IProps) {
 
                         onProgress={progressVideo}
                         playing={play}
+                        width="348px"
+                        height="348px"
                         // light="https://img.freepik.com/free-photo/a-colorful-picture-of-flowers-with-a-yellow-flower-on-the-bottom_1340-32004.jpg?size=338&ext=jpg&ga=GA1.1.1788614524.1718323200&semt=ais_user"
                         url={url}
 
