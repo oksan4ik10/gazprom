@@ -14,11 +14,12 @@ interface IProps {
     startVideo: boolean;
     heightHeader: number;
     offset: string;
+    loadedSeconds: number;
 }
 
 
 function Video(props: IProps) {
-    const { url, play, idVideo, changePlay, startVideo, heightHeader, offset } = props;
+    const { url, play, idVideo, changePlay, startVideo, heightHeader, offset, loadedSeconds } = props;
 
     const ref = useRef<HTMLDivElement>(null);
     const scrollToElement = () => {
@@ -85,7 +86,9 @@ function Video(props: IProps) {
             if (player.current) player.current.seekTo(0.01);
             return
         }
-        const second = state.playedSeconds / state.loadedSeconds;
+        console.log(state.loadedSeconds);
+
+        const second = state.playedSeconds / loadedSeconds;
         const s = cProgress * second;
         setSecondProgress(s)
     }
@@ -110,7 +113,7 @@ function Video(props: IProps) {
                 {/* {pause && <PauseIcon></PauseIcon>} */}
                 {startVideo && <Progress cProgress={cProgress} radiusProgress={radiusProgress} secondProgress={secondProgress} strokeWidthProgress={strokeWidthProgress} widthProgress={widthProgress}></Progress>}
                 <div className={style.lazyLoad + " " + style.wrapperPlayer + " " + (inView ? style.lazyOpacity : "")}></div>
-                {inView ? <div className={style.wrapperPlayer}>
+                <div className={style.wrapperPlayer}>
                     <ReactPlayer
                         ref={player}
                         onEnded={endVideo}
@@ -127,7 +130,7 @@ function Video(props: IProps) {
                         className={style.reactPlayer}
                         progressInterval={100}
                     />
-                </div> : <div className={style.lazyLoad + " " + style.wrapperPlayer}></div>}
+                </div>
 
             </div>
         </div>

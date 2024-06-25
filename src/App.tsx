@@ -12,7 +12,8 @@ export const App = () => {
       url: "1.1.mp4",
       play: false,
       startVideo: false,
-      offset: "70px"
+      offset: "70px",
+      loadedSeconds: 17
     },
     {
       idVideo: 1,
@@ -20,7 +21,8 @@ export const App = () => {
       url: "1.2.mp4",
       play: false,
       startVideo: false,
-      offset: "40px"
+      offset: "40px",
+      loadedSeconds: 10.566667
     },
     {
       idVideo: 2,
@@ -28,7 +30,8 @@ export const App = () => {
       url: "1.3.mp4",
       play: false,
       startVideo: false,
-      offset: "15px"
+      offset: "15px",
+      loadedSeconds: 16.133333
 
     },
     {
@@ -37,7 +40,8 @@ export const App = () => {
       url: "1.4.mp4",
       play: false,
       startVideo: false,
-      offset: "80px"
+      offset: "80px",
+      loadedSeconds: 29.233333
     },
     {
       idVideo: 4,
@@ -45,7 +49,8 @@ export const App = () => {
       url: "1.5.mp4",
       play: false,
       startVideo: false,
-      offset: "15px"
+      offset: "15px",
+      loadedSeconds: 32.6
     },
     {
       idVideo: 5,
@@ -53,7 +58,8 @@ export const App = () => {
       url: "1.6.mp4",
       play: false,
       startVideo: false,
-      offset: "45px"
+      offset: "45px",
+      loadedSeconds: 12.1
     },
     {
       idVideo: 6,
@@ -61,7 +67,8 @@ export const App = () => {
       url: "1.7.mp4",
       play: false,
       startVideo: false,
-      offset: "15px"
+      offset: "15px",
+      loadedSeconds: 15.033333
     },
     {
       idVideo: 7,
@@ -69,7 +76,8 @@ export const App = () => {
       url: "1.8.mp4",
       play: false,
       startVideo: false,
-      offset: "15px"
+      offset: "15px",
+      loadedSeconds: 27.2
     },
     {
       idVideo: 8,
@@ -77,7 +85,8 @@ export const App = () => {
       url: "1.9.mp4",
       play: false,
       startVideo: false,
-      offset: "60px"
+      offset: "60px",
+      loadedSeconds: 8.1
     },
     {
       idVideo: 9,
@@ -85,7 +94,8 @@ export const App = () => {
       url: "1.10.mp4",
       play: false,
       startVideo: false,
-      offset: "15px"
+      offset: "15px",
+      loadedSeconds: 29.933333
     },
     {
       idVideo: 10,
@@ -93,7 +103,8 @@ export const App = () => {
       url: "1.11.mp4",
       play: false,
       startVideo: false,
-      offset: "50px"
+      offset: "50px",
+      loadedSeconds: 8.7
     }
   ])
 
@@ -141,7 +152,7 @@ export const App = () => {
           <div className="main__task" key={item.idVideo}>
             <Comment text={item.text}></Comment>
             <div className="task__video">
-              <Video offset={item.offset} heightHeader={heightHeader} startVideo={item.startVideo} changePlay={changePlay} play={item.play} idVideo={item.idVideo} url={item.url}></Video>
+              <Video loadedSeconds={item.loadedSeconds} offset={item.offset} heightHeader={heightHeader} startVideo={item.startVideo} changePlay={changePlay} play={item.play} idVideo={item.idVideo} url={item.url}></Video>
             </div>
 
           </div>
