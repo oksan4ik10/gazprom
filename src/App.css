@@ -62,24 +62,49 @@
     background-position: top center;
     width: 116px;
     height: 125px;
-    animation: elem 1s alternate both infinite ease-in-out;
+    animation: elem 4s infinite linear;
 }
 
 .elem3 {
     width: 129px;
     height: 129px;
     background-image: url("./assets/img/bg-2.png");
-    animation-duration: 1.2s;
-    animation-direction: alternate-reverse;
+    animation: elem3 5s infinite ease-in-out;
 }
 
 @keyframes elem {
     0% {
-        transform: rotate(-20deg);
+        transform: translateX(0px) translateY(0px);
+    }
+
+    33% {
+        transform: translateX(-55px) translateY(45px);
+    }
+
+    66% {
+        transform: translateX(20px) translateY(55px);
     }
 
     100% {
-        transform: rotate(20deg);
+        transform: translateX(-1px) translateY(0px);
+    }
+}
+
+@keyframes elem3 {
+    0% {
+        transform: translateX(0px) translateY(0px);
+    }
+
+    33% {
+        transform: translateX(-20px) translateY(55px);
+    }
+
+    66% {
+        transform: translateX(75px) translateY(-25px);
+    }
+
+    100% {
+        transform: translateX(-1px) translateY(0px);
     }
 }
 
@@ -120,7 +145,7 @@
     .elem2 {
         top: min(2637px, calc(1322px + (2637 - 1322) * ((100vw - 1080px) / (2160 - 1080))));
         right: min(817px, calc(630px + (817 - 630) * ((100vw - 1080px) / (2160 - 1080))));
-        animation-delay: .5s;
+        animation-delay: 1s;
     }
 
     .elem3 {
