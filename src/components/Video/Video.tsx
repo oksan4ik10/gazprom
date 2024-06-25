@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { CSSProperties, useRef, useState } from "react";
 import ReactPlayer from 'react-player'
 import { useInView } from "react-intersection-observer";
 
@@ -13,11 +13,12 @@ interface IProps {
     changePlay: (id: number, startState: boolean) => void
     startVideo: boolean;
     heightHeader: number;
+    offset: string;
 }
 
 
 function Video(props: IProps) {
-    const { url, play, idVideo, changePlay, startVideo, heightHeader } = props;
+    const { url, play, idVideo, changePlay, startVideo, heightHeader, offset } = props;
 
     const ref = useRef<HTMLDivElement>(null);
     const scrollToElement = () => {
@@ -96,6 +97,7 @@ function Video(props: IProps) {
         triggerOnce: true
     })
 
+    const styleVideo = { "--offset": offset } as CSSProperties;
 
 
     return (
@@ -117,6 +119,7 @@ function Video(props: IProps) {
                         playing={play}
                         width="348px"
                         height="348px"
+                        style={styleVideo}
                         // light="https://img.freepik.com/free-photo/a-colorful-picture-of-flowers-with-a-yellow-flower-on-the-bottom_1340-32004.jpg?size=338&ext=jpg&ga=GA1.1.1788614524.1718323200&semt=ais_user"
                         url={url}
 

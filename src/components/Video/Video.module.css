@@ -24,7 +24,7 @@
 .reactPlayer video {
     width: auto !important;
     height: 100% !important;
-    margin-left: 70px;
+    margin-left: var(--offset);
 }
 
 

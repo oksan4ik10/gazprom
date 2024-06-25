@@ -11,77 +11,89 @@ export const App = () => {
       text: "Чем ты занимаешься в ГПб?",
       url: "1.1.mp4",
       play: false,
-      startVideo: false
+      startVideo: false,
+      offset: "70px"
     },
     {
       idVideo: 1,
       text: "А как ты попала в ГПб?",
       url: "1.2.mp4",
       play: false,
-      startVideo: false
+      startVideo: false,
+      offset: "40px"
     },
     {
       idVideo: 2,
       text: "Чему ты научился в ГПб?",
       url: "1.3.mp4",
       play: false,
-      startVideo: false
+      startVideo: false,
+      offset: "15px"
+
     },
     {
       idVideo: 3,
       text: "Назови топ-3 задачи в ГПб",
       url: "1.4.mp4",
       play: false,
-      startVideo: false
+      startVideo: false,
+      offset: "80px"
     },
     {
       idVideo: 4,
       text: "Какой твой самый интересный проект в ГПб?",
       url: "1.5.mp4",
       play: false,
-      startVideo: false
+      startVideo: false,
+      offset: "15px"
     },
     {
       idVideo: 5,
       text: "Что тебе помогает поддерживать work-life balance?",
       url: "1.6.mp4",
       play: false,
-      startVideo: false
+      startVideo: false,
+      offset: "45px"
     },
     {
       idVideo: 6,
       text: "Что тебя мотивирует в работе?",
       url: "1.7.mp4",
       play: false,
-      startVideo: false
+      startVideo: false,
+      offset: "15px"
     },
     {
       idVideo: 7,
       text: "Какие sof skills самые важные для<br/>карьерного роста?",
       url: "1.8.mp4",
       play: false,
-      startVideo: false
+      startVideo: false,
+      offset: "15px"
     },
     {
       idVideo: 8,
       text: "А какие hard skills?",
       url: "1.9.mp4",
       play: false,
-      startVideo: false
+      startVideo: false,
+      offset: "60px"
     },
     {
       idVideo: 9,
       text: "Какие у тебя цели в рамках карьерного роста?",
       url: "1.10.mp4",
       play: false,
-      startVideo: false
+      startVideo: false,
+      offset: "15px"
     },
     {
       idVideo: 10,
       text: "Опиши работу в ГПб в 3 пунктах",
       url: "1.11.mp4",
       play: false,
-      startVideo: false
+      startVideo: false,
+      offset: "50px"
     }
   ])
 
@@ -129,7 +141,7 @@ export const App = () => {
           <div className="main__task" key={item.idVideo}>
             <Comment text={item.text}></Comment>
             <div className="task__video">
-              <Video heightHeader={heightHeader} startVideo={item.startVideo} changePlay={changePlay} play={item.play} idVideo={item.idVideo} url={item.url}></Video>
+              <Video offset={item.offset} heightHeader={heightHeader} startVideo={item.startVideo} changePlay={changePlay} play={item.play} idVideo={item.idVideo} url={item.url}></Video>
             </div>
 
           </div>
