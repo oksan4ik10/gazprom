@@ -8,7 +8,7 @@ export const App = () => {
   const [videoInfo, setVideo] = useState([
     {
       idVideo: 0,
-      text: "Чем ты занимаешься в ГПб?",
+      text: "Чем ты занимаешься в Газпромбанке?",
       url: "1.1.mp4",
       play: false,
       startVideo: false,
@@ -17,7 +17,7 @@ export const App = () => {
     },
     {
       idVideo: 1,
-      text: "А как ты попала в ГПб?",
+      text: "А как ты попала в Газпромбанк?",
       url: "1.2.mp4",
       play: false,
       startVideo: false,
@@ -26,7 +26,7 @@ export const App = () => {
     },
     {
       idVideo: 2,
-      text: "Чему ты научился в ГПб?",
+      text: "Чему ты научился в Газпромбанке?",
       url: "1.3.mp4",
       play: false,
       startVideo: false,
@@ -36,7 +36,7 @@ export const App = () => {
     },
     {
       idVideo: 3,
-      text: "Назови топ-3 задачи в ГПб",
+      text: "Назови топ-3 задачи в Газпромбанке",
       url: "1.4.mp4",
       play: false,
       startVideo: false,
@@ -45,7 +45,7 @@ export const App = () => {
     },
     {
       idVideo: 4,
-      text: "Какой твой самый интересный проект в ГПб?",
+      text: "Какой твой самый интересный проект в Газпромбанке?",
       url: "1.5.mp4",
       play: false,
       startVideo: false,
@@ -99,7 +99,7 @@ export const App = () => {
     },
     {
       idVideo: 10,
-      text: "Опиши работу в ГПб в 3 пунктах",
+      text: "Опиши работу в Газпромбанке в 3 пунктах",
       url: "1.11.mp4",
       play: false,
       startVideo: false,
